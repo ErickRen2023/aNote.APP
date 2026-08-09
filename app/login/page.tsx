@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 
 export default function LoginPage() {
@@ -14,7 +13,7 @@ export default function LoginPage() {
         <h1 className="text-xl font-semibold tracking-tight">登录 myNOTE</h1>
         <p className="mt-2 text-sm leading-6 text-muted-foreground">使用 aSSO 账号继续管理你的知识卡片。</p>
         {error && <p className="mt-4 rounded-lg bg-destructive/10 px-3 py-2 text-xs text-destructive">aSSO 登录失败，请重试。</p>}
-        <Link
+        <a
           href="/api/auth/sso/login"
           onClick={() => {
             const next = searchParams.get('next')
@@ -23,7 +22,7 @@ export default function LoginPage() {
           className="mt-6 flex h-11 items-center justify-center rounded-lg bg-primary text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
         >
           使用 aSSO 登录
-        </Link>
+        </a>
       </section>
     </main>
   )
