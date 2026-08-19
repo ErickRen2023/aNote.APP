@@ -20,7 +20,7 @@ export function TopicList() {
   const router = useRouter()
 
   if (isLoading) {
-    return <div className="p-4 text-sm text-muted-foreground">加载主题中...</div>
+    return <div className="p-4 text-sm text-muted-foreground">加载标签中...</div>
   }
 
   if (error) {
@@ -37,8 +37,8 @@ export function TopicList() {
     return (
       <EmptyState
         icon={<Layers className="w-8 h-8" />}
-        title="暂无主题"
-        description="创建卡片时添加标签，它们会作为主题出现在这里"
+        title="暂无标签"
+        description="创建卡片时添加标签，它们会出现在这里"
       />
     )
   }
@@ -47,7 +47,7 @@ export function TopicList() {
     <div className="p-4">
       <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
         <Layers className="w-5 h-5 text-primary" />
-        主题视图
+        标签视图
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">

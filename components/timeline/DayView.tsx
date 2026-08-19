@@ -6,7 +6,7 @@ import { ExternalLink, FileText, NotebookPen } from 'lucide-react'
 import { useTimeline } from '@/hooks/useTimeline'
 import { useTimelineStore } from '@/stores/timelineStore'
 import { useUIStore } from '@/stores/uiStore'
-import { cn } from '@/lib/utils'
+import { cn, plainText } from '@/lib/utils'
 import { TimelineSkeleton } from '@/components/common/Skeleton'
 import { EmptyState } from '@/components/common/EmptyState'
 import type { DayCardData, DayTimelineData } from '@/types'
@@ -173,33 +173,4 @@ function JourneyEntry({ card, index }: { card: DayCardData; index: number }) {
       </button>
     </article>
   )
-}
-
-function plainText(value: string | undefined): string {
-  if (!value) return ''
-
-  const entities: Record<string, string> = {
-    nbsp: ' ',
-    amp: '&',
-    lt: '<',
-    gt: '>',
-    quot: '"',
-    '#39': "'",
-  }
-  let decoded = value
-
-  // The API summary can contain HTML entities (and occasionally entities that
-  // were escaped twice). Decode first, then remove both complete and truncated
-  // HTML tags so strings such as `&lt;/ul` cannot leak into the card preview.
-  for (let pass = 0; pass < 2; pass += 1) {
-    decoded = decoded.replace(
-      /&(nbsp|amp|lt|gt|quot|#39);/gi,
-      (entity) => entities[entity.slice(1, -1).toLowerCase()] || entity
-    )
-  }
-
-  return decoded
-    .replace(/<[^>]*(?:>|$)/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim()
 }

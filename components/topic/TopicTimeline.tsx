@@ -31,8 +31,8 @@ export function TopicTimeline() {
     return (
       <EmptyState
         icon={<Layers className="w-8 h-8" />}
-        title="选择主题"
-        description="请从左侧主题列表中选择一个主题查看"
+        title="选择标签"
+        description="请从标签视图中选择一个标签查看"
       />
     )
   }
@@ -45,7 +45,7 @@ export function TopicTimeline() {
     return (
       <EmptyState
         icon={<Layers className="w-8 h-8" />}
-        title="该主题下暂无卡片"
+        title="该标签下暂无卡片"
         description="试试为卡片添加这个标签"
       />
     )
