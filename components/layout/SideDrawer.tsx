@@ -18,7 +18,7 @@ export function SideDrawer() {
       icon: <Clock className="w-4 h-4" />,
     },
     {
-      label: '主题视图',
+      label: '标签视图',
       href: '/topics',
       icon: <Layers className="w-4 h-4" />,
     },

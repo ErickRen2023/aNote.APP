@@ -1,7 +1,7 @@
 'use client'
 
 import { useDraggable } from '@dnd-kit/core'
-import { cn } from '@/lib/utils'
+import { cn, plainText } from '@/lib/utils'
 import { formatTime } from '@/lib/timeline-engine'
 import { useUIStore } from '@/stores/uiStore'
 import type { DayCardData } from '@/types'
@@ -13,6 +13,7 @@ interface CardItemProps {
 
 export function CardItem({ card, compact = false }: CardItemProps) {
   const openCardDetail = useUIStore((s) => s.openCardDetail)
+  const contentSummary = plainText(card.content_summary)
 
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
     id: `card-${card.id}`,
@@ -51,9 +52,9 @@ export function CardItem({ card, compact = false }: CardItemProps) {
             {card.title || '无标题'}
           </h4>
 
-          {!compact && card.content_summary && (
+          {!compact && contentSummary && (
             <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
-              {card.content_summary}
+              {contentSummary}
             </p>
           )}
 

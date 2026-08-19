@@ -2,13 +2,17 @@
 
 import { Suspense } from 'react'
 import { TopicList } from '@/components/topic/TopicList'
+import { TopicTimeline } from '@/components/topic/TopicTimeline'
+import { useSearchParams } from 'next/navigation'
 
 function TopicsContent() {
+  const searchParams = useSearchParams()
+  const hasSelectedTags = Boolean(searchParams.get('tag_ids'))
+
   return (
     <div className="flex flex-col h-full">
-      {/* Topic cards grid */}
       <div className="overflow-y-auto">
-        <TopicList />
+        {hasSelectedTags ? <TopicTimeline /> : <TopicList />}
       </div>
     </div>
   )

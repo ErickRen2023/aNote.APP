@@ -86,7 +86,7 @@ export function TagManager() {
         <div className="mb-7">
           <p className="mb-1 text-xs font-medium uppercase tracking-[0.18em] text-primary">Organize</p>
           <h1 className="text-2xl font-semibold tracking-tight">标签管理</h1>
-          <p className="mt-2 text-sm text-muted-foreground">整理标签名称和颜色，让时间线与主题视图更容易浏览。</p>
+          <p className="mt-2 text-sm text-muted-foreground">整理标签名称和颜色，让时间线与标签视图更容易浏览。</p>
         </div>
 
         <section className="mb-6 rounded-xl border border-border bg-card p-5 shadow-sm">
